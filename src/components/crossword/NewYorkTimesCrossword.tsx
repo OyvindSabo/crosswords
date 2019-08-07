@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CrosswordVisualization from './CrosswordVisualization';
+import CrosswordTitle from './CrosswordTitle';
 import { Crossword } from './types';
 
 interface NewYorkTimesCrosswordProps {
@@ -36,7 +37,10 @@ const NewYorkTimesCrossword = ({ match }: NewYorkTimesCrosswordProps) => {
     <div>
       {isLoading && <h1>Loading</h1>}
       {crossword && (
-        <CrosswordVisualization crossword={crossword as Crossword} />
+        <>
+          <CrosswordTitle crossword={crossword as Crossword} />
+          <CrosswordVisualization crossword={crossword as Crossword} />
+        </>
       )}
     </div>
   );

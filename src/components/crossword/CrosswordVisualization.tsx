@@ -49,7 +49,7 @@ interface CrosswordVisualizationProps {
 }
 
 const CrosswordVisualization = ({ crossword }: CrosswordVisualizationProps) => {
-  const { title, grid, gridnums } = crossword;
+  const { grid, gridnums } = crossword;
   const width = crossword.size.cols;
   const height = crossword.size.rows;
   const { across, down } = crossword.clues;
@@ -73,7 +73,6 @@ const CrosswordVisualization = ({ crossword }: CrosswordVisualizationProps) => {
   }
   return (
     <>
-      <h2>{title}</h2>
       <Table>
         {crosswordRows.map(row => (
           <tr>

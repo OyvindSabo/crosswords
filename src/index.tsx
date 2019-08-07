@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import NewYorkTimesCrossword from './crossword/NewYorkTimesCrossword';
+import NewYorkTimesCrossword from './components/crossword/NewYorkTimesCrossword';
 import App from './App';
+import MainContainer from './components/mainContainer/MainContainer';
 
 ReactDOM.render(
   <Router>
@@ -14,10 +15,10 @@ ReactDOM.render(
         <Link to={`/about`}>About</Link>
       </aside>
 
-      <main>
+      <MainContainer>
         <Route exact path="/" component={App} />
         <Route path="/:year/:month/:day" component={NewYorkTimesCrossword} />
-      </main>
+      </MainContainer>
     </div>
   </Router>,
   document.getElementById('root')
