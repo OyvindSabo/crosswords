@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CrosswordVisualization from './CrosswordVisualization';
 import CrosswordTitle from './CrosswordTitle';
 import { Crossword } from './types';
+import CrosswordClues from './CrosswordClues';
 
 interface NewYorkTimesCrosswordProps {
   match: {
@@ -40,6 +41,7 @@ const NewYorkTimesCrossword = ({ match }: NewYorkTimesCrosswordProps) => {
         <>
           <CrosswordTitle crossword={crossword as Crossword} />
           <CrosswordVisualization crossword={crossword as Crossword} />
+          <CrosswordClues crossword={crossword as Crossword} />;
         </>
       )}
     </div>

@@ -52,7 +52,6 @@ const CrosswordVisualization = ({ crossword }: CrosswordVisualizationProps) => {
   const { grid, gridnums } = crossword;
   const width = crossword.size.cols;
   const height = crossword.size.rows;
-  const { across, down } = crossword.clues;
   const crosswordRows = [];
   for (let i = 0; i < height; i++) {
     const row = [];
@@ -64,42 +63,16 @@ const CrosswordVisualization = ({ crossword }: CrosswordVisualizationProps) => {
     }
     crosswordRows.push(row);
   }
-
-  const clueTableLength = Math.max(across.length, down.length);
-  const clueRows = [];
-  for (let i = 0; i < clueTableLength; i++) {
-    const row = [across[i] || '', down[i] || ''];
-    clueRows.push(row);
-  }
   return (
-    <>
-      <Table>
-        {crosswordRows.map(row => (
-          <tr>
-            {row.map(({ gridChar, gridNum }) => (
-              <Cell gridChar={gridChar} gridNum={gridNum} />
-            ))}
-          </tr>
-        ))}
-      </Table>
-      <table>
+    <Table>
+      {crosswordRows.map(row => (
         <tr>
-          <td>
-            <h3>Across:</h3>
-          </td>
-          <td>
-            <h3>Down:</h3>
-          </td>
+          {row.map(({ gridChar, gridNum }) => (
+            <Cell gridChar={gridChar} gridNum={gridNum} />
+          ))}
         </tr>
-        {clueRows.map(row => (
-          <tr>
-            {row.map(cell => (
-              <td>{cell}</td>
-            ))}
-          </tr>
-        ))}
-      </table>
-    </>
+      ))}
+    </Table>
   );
 };
 
